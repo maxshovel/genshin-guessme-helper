@@ -47,7 +47,7 @@ function App() {
   return (
     <>
       <div className="app">
-        <h1>Genshin Impact Guess Me Helper</h1>
+        <h1>Genshin Impact Guess Who</h1>
         <div className="game-container">
           <div className="control-column">
             <div className="scoreboard">
