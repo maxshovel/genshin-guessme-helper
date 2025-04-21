@@ -1,0 +1,65 @@
+/* Character Portrait Component Styles */
+.character-portrait-container {
+  position: relative;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  overflow: visible;
+  background-color: #23272f;
+}
+
+/* Size variants */
+.character-portrait-small {
+  width: 50px;
+  height: 50px;
+}
+
+.character-portrait-medium {
+  width: 80px;
+  height: 80px;
+}
+
+.character-portrait-large {
+  width: 100px;
+  height: 100px;
+}
+
+/* Image styling */
+.character-portrait {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #ffd166;
+  background: #1a1a1a;
+  transition: transform 0.2s ease-in-out;
+}
+
+.character-portrait:hover {
+  transform: scale(1.05);
+}
+
+/* Fallback for when image fails to load */
+.character-portrait-fallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #2e3549, #1a1c25);
+  color: #ffd166;
+  font-weight: bold;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  border: 2px solid #ffd166;
+}
+
+.character-portrait-small .character-portrait-fallback {
+  font-size: 1rem;
+}
+
+.character-portrait-large .character-portrait-fallback {
+  font-size: 2rem;
+}

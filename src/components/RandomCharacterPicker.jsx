@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
+import PropTypes from 'prop-types';
+import CharacterPortrait from './CharacterPortrait';
 
 const RandomCharacterPicker = ({ possibleCharacters, resetSignal }) => {
   const [selected, setSelected] = useState(null);
@@ -7,17 +9,14 @@ const RandomCharacterPicker = ({ possibleCharacters, resetSignal }) => {
     setSelected(null);
   }, [resetSignal]);
 
-  const handlePick = () => {
+  // Memoize the handler to avoid unnecessary recreations
+  const handlePick = useCallback(() => {
     if (possibleCharacters.length === 0) return;
     const randomIndex = Math.floor(Math.random() * possibleCharacters.length);
     setSelected(possibleCharacters[randomIndex]);
-  };
+  }, [possibleCharacters]);
 
-  // Helper for initials fallback
-  const getInitials = (name) => {
-    if (!name) return '';
-    return name.split(' ').map(part => part.charAt(0)).join('').toUpperCase();
-  };
+
 
   return (
     <div className="random-character-picker-col">
@@ -28,20 +27,7 @@ const RandomCharacterPicker = ({ possibleCharacters, resetSignal }) => {
       </div>
       {selected && (
         <div className="character-card random-character-card">
-          <div className="character-portrait-container">
-            {selected.portrait ? (
-              <img 
-                src={selected.portrait} 
-                alt={selected.name + ' portrait'} 
-                className="character-portrait"
-                loading="lazy"
-              />
-            ) : (
-              <div className="character-portrait-fallback">
-                <span>{getInitials(selected.name)}</span>
-              </div>
-            )}
-          </div>
+          <CharacterPortrait character={selected} size="large" />
           <h3>{selected.name}</h3>
           <div className="character-info-hover always-show">
             <div className="character-info-content">
@@ -58,4 +44,22 @@ const RandomCharacterPicker = ({ possibleCharacters, resetSignal }) => {
   );
 };
 
-export default RandomCharacterPicker;
+// PropTypes validation for component props
+RandomCharacterPicker.propTypes = {
+  possibleCharacters: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      portrait: PropTypes.string,
+      element: PropTypes.string.isRequired,
+      weapon: PropTypes.string.isRequired,
+      region: PropTypes.string.isRequired,
+      model: PropTypes.string.isRequired,
+      sex: PropTypes.string.isRequired
+    })
+  ).isRequired,
+  resetSignal: PropTypes.number.isRequired
+};
+
+// Export memoized component to prevent unnecessary re-renders
+export default React.memo(RandomCharacterPicker);

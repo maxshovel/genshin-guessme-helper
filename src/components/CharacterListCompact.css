@@ -1,0 +1,68 @@
+.not-possible-list-compact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+}
+
+.not-possible-item {
+  display: flex;
+  align-items: center;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  background: transparent;
+  transition: background 0.15s;
+  position: relative;
+}
+
+.not-possible-item:hover {
+  background: #23272f;
+  z-index: 2;
+}
+
+.not-possible-item-name {
+  flex: 1;
+  color: #ffd166;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: default;
+}
+
+.not-possible-item-redo {
+  background: #ffd166;
+  color: #23272f;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.2rem 0.7rem;
+  margin-left: 0.5rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.not-possible-item-redo:hover {
+  background: #ffe082;
+}
+
+/* Hover popup for character info */
+.not-possible-item .character-info-hover {
+  display: none;
+  position: absolute;
+  left: 100%;
+  top: 0;
+  z-index: 10;
+  min-width: 220px;
+  background: #23272f;
+  color: #ffd166;
+  border: 1px solid #ffd166;
+  border-radius: 8px;
+  padding: 0.7rem 1rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+  font-size: 0.96rem;
+  pointer-events: none;
+}
+
+.not-possible-item:hover .character-info-hover {
+  display: block;
+}

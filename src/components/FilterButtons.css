@@ -1,0 +1,91 @@
+.filter-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+  max-width: 100%;
+  overflow-y: auto;
+}
+
+.filter-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border: 1px solid #282c34;
+  border-radius: 8px;
+  padding: 12px;
+  background-color: #22252b;
+  color: #ffd166;
+}
+
+.filter-section h3 {
+  margin: 0 0 8px 0;
+  font-size: 1rem;
+  color: #ffd166;
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+.filter-button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 6px;
+}
+
+.filter-label {
+  font-size: 0.9rem;
+  color: #ffd166;
+}
+
+.yes-no-buttons {
+  display: flex;
+  gap: 4px;
+}
+
+.yes-no-buttons button {
+  flex: 1;
+  padding: 6px 8px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.yes-button {
+  background-color: #4caf50;
+  color: white;
+  border: 1px solid #388e3c;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.yes-button.active {
+  background-color: #ffd166;
+  color: #23272f;
+  border: 2px solid #ffd166;
+  font-weight: bold;
+}
+
+.yes-button:hover {
+  background-color: #388e3c;
+}
+
+.no-button {
+  background-color: #f44336;
+  color: white;
+  border: 1px solid #d32f2f;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.no-button.active {
+  background-color: #ffd166;
+  color: #23272f;
+  border: 2px solid #ffd166;
+  font-weight: bold;
+}
+
+.no-button:hover {
+  background-color: #d32f2f;
+}
