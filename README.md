@@ -38,6 +38,7 @@ This project uses the following dependencies:
 - `@types/react` ^18.2.37
 - `@types/react-dom` ^18.2.15
 - `globals` ^16.0.0
+- `terser` (required for Vite production builds on Vercel)
 
 ---
 

@@ -8,6 +8,7 @@ const CharacterList = ({ characters, onMoveCharacter, listType }) => {
     return (
       <div className={`character-list ${listType}`}>
         <h2>Not Possible Characters</h2>
+        <div className="character-count">{characters.length} character{characters.length !== 1 ? 's' : ''}</div>
         <div className="not-possible-list-compact">
           {characters.map((character) => (
             <div key={character.id} className="not-possible-item">
@@ -41,6 +42,7 @@ const CharacterList = ({ characters, onMoveCharacter, listType }) => {
   return (
     <div className={`character-list ${listType}`}>
       <h2>Possible Characters</h2>
+      <div className="character-count">{characters.length} character{characters.length !== 1 ? 's' : ''}</div>
       <div className="characters-grid">
         {characters.map((character) => (
           <div key={character.id} className="character-card">

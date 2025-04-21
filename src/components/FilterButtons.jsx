@@ -18,11 +18,9 @@ const FilterButtons = ({ onFilter, activeFilters = {} }) => {
     <div className="filter-buttons">
       <div className="filter-section">
         <h3>Filter by Element</h3>
-        {elements.map((element) => (
+        {elements.filter(element => element !== 'None').map((element) => (
           <div key={element} className="filter-button-group">
-            <span className="filter-label">
-              {element === 'None' ? 'Is Traveler?' : `Has ${element}?`}
-            </span>
+            <span className="filter-label">{`${element} User?`}</span>
             <div className="yes-no-buttons">
               <button
                 onClick={createFilterHandler('element', element, true)}
@@ -47,7 +45,7 @@ const FilterButtons = ({ onFilter, activeFilters = {} }) => {
         <h3>Filter by Weapon</h3>
         {weapons.map((weapon) => (
           <div key={weapon} className="filter-button-group">
-            <span className="filter-label">Has {weapon}?</span>
+            <span className="filter-label">{weapon} User?</span>
             <div className="yes-no-buttons">
               <button
                 onClick={createFilterHandler('weapon', weapon, true)}
