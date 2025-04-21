@@ -19,6 +19,12 @@ This project was whipped up in about 3 hours and, to be honest, after about 4 be
 
 ---
 
+## Live Demo
+
+[Play Genshin Impact Guess Who on Vercel](https://genshin-guessme-helper.vercel.app/)
+
+---
+
 ## Dependencies
 This project uses the following dependencies:
 
